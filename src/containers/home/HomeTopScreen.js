@@ -2,11 +2,11 @@
 import { compose, withStateHandlers, setDisplayName, lifecycle, pure, withHandlers } from 'recompose'
 import { connect } from 'react-redux'
 
-import HomeScreen from '../components/HomeScreen'
-import * as RoomAction from '../modules/room'
+import HomeTopScreen from '../../components/home/HomeTopScreen'
+import * as RoomAction from '../../modules/room'
 
-const display = "HomeScreen"
-const component = HomeScreen
+const display = "HomeTopScreen"
+const component = HomeTopScreen
 
 const initialProps = {
     message: "Hello",
@@ -42,17 +42,12 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    getRoomList: () => {
-        console.log("getRoomList_success")
-        dispatch(RoomAction.getRoomList())
-    }
 })
 
 // componentDidMountなどのライフサイクルを記述する
 const lifeCycle = {
     componentDidMount() {
         console.log("componentDidMount_Success")
-        this.props.getRoomList()
     },
 
 }
